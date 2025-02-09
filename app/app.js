@@ -59,7 +59,11 @@ async function scrapeData(retryCount = 0) {
     const dataExists = await checkIfDataExists(date);
 
     // 启动浏览器
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    });
+
     const page = await browser.newPage();
 
     // 监听网络请求，确保所有数据都加载完成

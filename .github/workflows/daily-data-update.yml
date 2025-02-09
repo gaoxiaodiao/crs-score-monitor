@@ -22,10 +22,12 @@ jobs:
         run: |
           cd app
           npm install puppeteer  # 安装 Puppeteer 依赖
+          sudo apt-get install -y xvfb
 
       - name: Update the data.csv
         run: |
-          cd app && node app.js
+          cd app
+          xvfb-run --server-args="-screen 0 1280x1024x24" node app.js
 
       - name: Update the data.csv to Github
         run: |
