@@ -33,6 +33,6 @@ jobs:
         run: |
           git config --global user.email "your-email@example.com"  # 设置 Git 提交的用户邮箱
           git config --global user.name "your-github-username"  # 设置 Git 提交的用户名
-          git add data.csv  # 将更新的 data.csv 添加到 Git 暂存区
+          git add ./app/data.csv  # 将更新的 data.csv 添加到 Git 暂存区
           git commit -m "Daily update: $(date +'%Y-%m-%d')"  # 提交时附上当前日期
           git push origin main  # 推送到主分支
